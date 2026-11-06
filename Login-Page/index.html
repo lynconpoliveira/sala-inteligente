@@ -8,22 +8,25 @@
     <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <form  class = "login-form" action="/login" method="post">
+    <div class = "login-container">
+        <form  class = "login-form" action="/login" method="post">
 
-        <!-- Titulo que aparece en la página (o Vs Code completou o comentario com en la página... xique) -->
-        <h1 class="title">User Login</h1>
+            <!-- Titulo que aparece en la página (o Vs Code completou o comentario com en la página... xique) -->
+            <h1 class="title">User Login</h1>
 
-        <label for="username">Email:</label>
-        <input class = "write-box" type="email" id="username" name="username" placeholder="Email" required>
+            <!-- <label for="username">Email:</label> -->
+            <img src="../assets/email-icon.png" alt = "email-icon" class = "email-icon">
+            <input class = "write-box" type="email" id="username" name="username" placeholder="Email" required>
 
-        <br><br>
+            <br><br>
 
-        <label for="password">Password:</label>
-        <input class = "write-box" type="password" id="password" name="password" placeholder="Password" required >
+            <!-- <label for="password">Password:</label> -->
+            <input class = "write-box" type="password" id="password" name="password" placeholder="Password" required >
 
-        <br><br>
+            <br><br>
 
-        <button type="submit">Login</button>
-    </form>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
