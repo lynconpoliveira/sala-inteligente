@@ -14,10 +14,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyCnE4RszW8NF2flRxnSLzFjo93RcZmxvWw",
   authDomain: "sala-inteligente-587e1.firebaseapp.com",
   projectId: "sala-inteligente-587e1",
-  appId: "",
+  storageBucket: "sala-inteligente-587e1.firebasestorage.app",
+  messagingSenderId: "91238368133",
+  appId: "1:91238368133:web:d54c85100a0f5115f47aec",
+  measurementId: "G-RCHZXWEXRY",
 };
 
 const loginForm = document.getElementById("login-form");
@@ -41,10 +44,13 @@ function setMessage(element, message, state = "error") {
 function messageFor(error) {
   const messages = {
     "auth/email-already-in-use": "Este e-mail já possui uma conta.",
-    "auth/invalid-credential": "E-mail ou senha incorretos.",
+    "auth/invalid-credential": "E-mail ou senha incorretos. Confira os dados e tente novamente.",
+    "auth/invalid-login-credentials": "E-mail ou senha incorretos. Confira os dados e tente novamente.",
     "auth/invalid-email": "Informe um e-mail válido.",
     "auth/network-request-failed": "Falha de conexão. Verifique a internet e tente novamente.",
     "auth/too-many-requests": "Muitas tentativas. Aguarde um pouco e tente novamente.",
+    "auth/user-not-found": "Não existe uma conta cadastrada com este e-mail.",
+    "auth/wrong-password": "A senha informada está incorreta.",
     "auth/weak-password": "A senha precisa ter pelo menos 6 caracteres.",
     "permission-denied": "O Firestore negou a operação. Verifique se as regras foram publicadas.",
   };
