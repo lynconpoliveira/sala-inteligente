@@ -99,3 +99,21 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
+
+.auth-message {
+  min-height: 24px;
+  margin: 0;
+  color: #8d1c1c;
+  text-align: center;
+  font-size: 14px;
+}
+
+.auth-message[data-state="info"] {
+  color: rgb(74, 42, 155);
+}
+
+.login-link {
+  color: rgb(149, 35, 160);
+  text-align: center;
+  font-size: 14px;
+}

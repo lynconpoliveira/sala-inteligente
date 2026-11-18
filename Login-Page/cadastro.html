@@ -1,44 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de aluno · Sala Inteligente</title>
 
-    <link rel = "stylesheet" href = "style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         />
 
     <script src="scripts.js" defer></script>
+    <script type="module" src="../user_data.js"></script>
 </head>
 <body>
-    <div class = "login-container">
-        <form  class = "login-form" action="/login" method="post">
+    <div class="login-container">
+        <form class="login-form" id="register-form">
 
             <!-- Titulo que aparece en la página (o Vs Code completou o comentario com en la página... xique) -->
-            <h1 class="title">Create Acount</h1>
+            <h1 class="title">Cadastro de aluno</h1>
 
             <!-- <label for="username">Email:</label> -->
-            <div class = "write-login-container">
-                <img src="../assets/email-icon.png" alt = "email-icon" class = "email-icon">
-                <input class = "write-box" type="email" id="username" name="username" placeholder="Write your email" required>
+            <div class="write-login-container">
+                <img src="../assets/email-icon.png" alt="" class="email-icon">
+                <input class="write-box" type="email" id="username" name="email" placeholder="Seu e-mail" autocomplete="email" required>
             </div>
 
             <br><br>
 
             <!-- <label for="password">Password:</label> -->
-             <div class = "write-login-container">
-                <img src="../assets/password-icon.png" alt = "password-icon" class = "password-icon">
-                <input class = "write-box" type="password" id="password" name="password" placeholder="Write your password" required>
+             <div class="write-login-container">
+                <img src="../assets/password-icon.png" alt="" class="password-icon">
+                <input class="write-box" type="password" id="password" name="password" placeholder="Crie uma senha (mínimo 6 caracteres)" autocomplete="new-password" minlength="6" required>
                 <i class="fas fa-eye" id="togglePassword"></i>
             </div>
 
             <br><br>
 
-            <div class = "form-button-login">
-                <button class="create-acount-button">Create Acount</button>
-            </div> 
+            <p class="auth-message" aria-live="polite"></p>
+
+            <div class="form-button-login">
+                <button type="submit" class="create-acount-button">Criar conta de aluno</button>
+                <a class="login-link" href="index.html">Já tenho uma conta</a>
+            </div>
         </form>
     </div>
 </body>

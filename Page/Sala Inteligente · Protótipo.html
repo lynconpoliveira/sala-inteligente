@@ -6,9 +6,12 @@
 <title>Sala Inteligente · Protótipo</title>
 <link rel="stylesheet" href="sala-inteligente.css">
 <script src="sala-inteligente.js" defer></script>
+<script type="module" src="../user_data.js"></script>
 </head>
 <body>
-<div class="app">
+<p id="auth-status" class="auth-status" role="status" aria-live="polite">Verificando seu acesso...</p>
+<button id="auth-gate-logout" class="auth-gate-logout" type="button" hidden>Sair</button>
+<div class="app" id="app-content" hidden>
   <aside class="side">
     <div class="logo">Sala <span>Inteligente</span></div>
     <nav id="nav">
@@ -18,24 +21,15 @@
       <a href="#projetos" data-v="projetos">📚 Projetos</a>
       <a href="#sobre" data-v="sobre">ℹ️ Sobre</a>
     </nav>
+    <button class="btn" id="logout-button" type="button">Sair</button>
   </aside>
 
   <main>
     <!-- PAINEL -->
     <section class="view" id="painel">
-      <h1>Bom dia, Lana!</h1>
+      <h1 id="user-greeting">Bom dia!</h1>
       <p class="sub">Veja como está a sua sala de aula hoje · Segunda, 15 de março</p>
-      <div class="hero">
-        <h2>Sua sala, mais conectada</h2>
-        <p>Chamada automática, controle de luz e clima, e todos os conteúdos das disciplinas em um só lugar.</p>
-        <a class="btn" href="#ambiente">Ver a sala agora</a>
-      </div>
-      <div class="grid g3" style="margin-bottom:20px">
-        <div class="card stat"><span class="ico">🌡️</span><b>24 °C</b><small>Temperatura</small><span class="ok">Confortável</span></div>
-        <div class="card stat"><span class="ico">💡</span><b>78%</b><small>Luminosidade</small><span class="ok">Ideal</span></div>
-        <div class="card stat"><span class="ico">🧑‍🎓</span><b>28/30</b><small>Presença</small><span class="ok">Chamada feita</span></div>
-        <div class="card stat"><span class="ico">🍃</span><b>Boa</b><small>Qualidade do ar</small><span class="ok">CO₂ 620 ppm</span></div>
-      </div>
+      
       <div class="grid g2">
         <div class="card">
           <h2>Horário de hoje</h2>
@@ -71,7 +65,7 @@
     <!-- AMBIENTE -->
     <section class="view" id="ambiente">
       <h1>Ambiente da sala</h1>
-      <p class="sub">Sala 12 · Atualizado agora</p>
+      <p class="sub">Laboratorio de informatica · Atualizado agora</p>
       <div class="grid g2">
         <div class="card">
           <h2>Sensores</h2>
@@ -98,6 +92,12 @@
           <tr><td>Marina Costa</td><td>8:12</td><td style="color:var(--yellow);font-weight:600">Atrasada</td></tr>
           <tr><td>João Ribeiro</td><td>—</td><td style="color:var(--red);font-weight:600">Ausente</td></tr>
         </table></div>
+      </div>
+        <div class="grid g3" style="margin-top:20px">
+        <div class="card stat"><span class="ico">🌡️</span><b>24 °C</b><small>Temperatura</small><span class="ok">Confortável</span></div>
+        <div class="card stat"><span class="ico">💡</span><b>78%</b><small>Luminosidade</small><span class="ok">Ideal</span></div>
+        <div class="card stat"><span class="ico">🧑‍🎓</span><b>28/30</b><small>Presença</small><span class="ok">Chamada feita</span></div>
+        <div class="card stat"><span class="ico">🍃</span><b>Boa</b><small>Qualidade do ar</small><span class="ok">CO₂ 620 ppm</span></div>
       </div>
     </section>
 
