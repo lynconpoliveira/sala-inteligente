@@ -1,7 +1,7 @@
 body {
   margin: 0;
   height: 100vh;
-  background-color: rgb(180, 158, 216);
+  background: linear-gradient(to right, white, rgb(132, 85, 146));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,9 +10,9 @@ body {
 .login-container {
   width: 500px;
   min-height: 480px;
-  background-color: rgba(245, 245, 245, 0.5);
+  background-color: rgba(247, 242, 246, 0.5);
   border-radius: 20px;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: -50px 0px 50px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   padding: 45px 40px 40px 40px; 
   display: flex;
