@@ -1,7 +1,7 @@
 body {
   margin: 0;
   height: 100vh;
-  background-color: rgb(180, 158, 216);
+  background: linear-gradient(to right, white, rgb(116, 38, 189));
   display: flex;
   justify-content: center;
   align-items: center;
