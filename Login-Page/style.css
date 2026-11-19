@@ -88,6 +88,11 @@ body {
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
+  transition: 0.5s ease;
+}
+
+.login-button:hover{
+  background-color: rgb(79, 19, 107);
 }
 
 .create-acount-button {
@@ -98,6 +103,11 @@ body {
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
+  transition: 0.5s ease;
+}
+
+.create-acount-button:hover{
+  background-color: rgba(58, 23, 114, 0.178);
 }
 
 .auth-message {
