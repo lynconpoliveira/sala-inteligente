@@ -13,5 +13,43 @@ service cloud.firestore {
       allow read: if request.auth != null
         && request.auth.uid == userId;
     }
+
+    match /rooms/{roomCode} {
+      allow create: if request.auth != null
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'professor'
+        && request.resource.data.teacherId == request.auth.uid
+        && request.resource.data.active == true;
+
+      allow read: if request.auth != null;
+
+      allow update, delete: if request.auth != null
+        && resource.data.teacherId == request.auth.uid;
+
+      match /students/{studentId} {
+        allow read: if request.auth != null
+          && (get(/databases/$(database)/documents/rooms/$(roomCode)).data.teacherId == request.auth.uid
+            || request.auth.uid == studentId);
+
+        allow create, update: if request.auth != null
+          && request.auth.uid == studentId
+          && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'aluno'
+          && get(/databases/$(database)/documents/rooms/$(roomCode)).data.active == true
+          && request.resource.data.userId == request.auth.uid;
+
+        allow delete: if request.auth != null
+          && (request.auth.uid == studentId
+            || get(/databases/$(database)/documents/rooms/$(roomCode)).data.teacherId == request.auth.uid);
+      }
+
+      match /materials/{materialId} {
+        allow read: if request.auth != null
+          && (get(/databases/$(database)/documents/rooms/$(roomCode)).data.teacherId == request.auth.uid
+            || exists(/databases/$(database)/documents/rooms/$(roomCode)/students/$(request.auth.uid)));
+
+        allow create, update, delete: if request.auth != null
+          && get(/databases/$(database)/documents/rooms/$(roomCode)).data.teacherId == request.auth.uid
+          && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'professor';
+      }
+    }
   }
 }

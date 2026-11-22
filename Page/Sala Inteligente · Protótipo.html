@@ -15,11 +15,7 @@
   <aside class="side">
     <div class="logo">Sala <span>Inteligente</span></div>
     <nav id="nav">
-      <a href="#painel" data-v="painel">🏠 Painel</a>
-      <a href="#horarios" data-v="horarios">🗓️ Horários</a>
-      <a href="#ambiente" data-v="ambiente">🌡️ Controle</a>
-      <a href="#projetos" data-v="projetos">📚 Projetos</a>
-      <a href="#sobre" data-v="sobre">ℹ️ Sobre</a>
+      <a href="#painel" data-v="painel">🏠 Introdução</a>
     </nav>
     <button class="btn" id="logout-button" type="button">Sair</button>
   </aside>
@@ -28,115 +24,22 @@
     <!-- PAINEL -->
     <section class="view" id="painel">
       <h1 id="user-greeting">Bom dia!</h1>
-      <p class="sub">Veja como está a sua sala de aula hoje · Segunda, 15 de março</p>
-      
-      <div class="grid g2">
-        <div class="card">
-          <h2>Horário de hoje</h2>
-          <p class="sub" style="margin-bottom:12px">Próximas aulas</p>
-          <div class="slot mat"><div class="i">🧮</div><div><b>Matemática</b><small>8:00 – 8:45</small></div><a class="join" href="#horarios">Detalhes</a></div>
-          <div class="slot geo"><div class="i">🌎</div><div><b>Geografia</b><small>8:55 – 9:40</small></div><a class="join" href="#horarios">Detalhes</a></div>
-          <div class="slot lit"><div class="i">📖</div><div><b>Literatura</b><small>10:55 – 11:40</small></div><a class="join" href="#horarios">Detalhes</a></div>
-        </div>
-        <div class="card">
-          <h2>Para fazer</h2>
-          <p class="sub" style="margin-bottom:12px">Tarefas da semana</p>
-          <div class="slot mat"><div><b>Lista de Matemática</b><small>Hoje</small></div></div>
-          <div class="slot bio"><div><b>Relatório de Biologia</b><small>Amanhã</small></div></div>
-          <div class="slot lit"><div><b>Resenha: Romeu e Julieta</b><small>Quinta-feira</small></div></div>
-        </div>
-      </div>
+      <p class="sub" id = "texto-introdutorio"></p>
+      <form class="create-room-form" id="create-room-form" hidden>
+        <label for="room-name">Nome da sala</label>
+        <input id="room-name" name="roomName" type="text" placeholder="Ex.: Turma 9A" required>
+        <button class="btn" id="create-room-button" type="submit" disabled>Criar sala de aula</button>
+      </form>
+      <form class="join-room" id="join-room-form" hidden>
+        <h2>Entrar em uma sala</h2>
+        <label for="student-name">Seu nome</label>
+        <input id="student-name" name="studentName" type="text" placeholder="Digite seu nome" required>
+        <label for="room-code">Código da sala</label>
+        <input id="room-code" name="roomCode" type="text" placeholder="Ex.: ABC123" maxlength="6" required>
+        <button class="btn" id="join-room-button" type="submit" disabled>entra na aula</button>
+        <p class="join-room-message" id="join-room-message" aria-live="polite"></p>
+      </form>
     </section>
-
-    <!-- HORARIOS -->
-    <section class="view" id="horarios">
-      <h1>Horários</h1>
-      <p class="sub">Segunda-feira, 15 de março</p>
-      <div class="card">
-        <div class="slot mat"><div class="i">🧮</div><div><b>Matemática</b><small>8:00 – 8:45 · Sala 12</small></div><a class="join" href="#ambiente">Entrar</a></div>
-        <div class="slot geo"><div class="i">🌎</div><div><b>Geografia</b><small>8:55 – 9:40 · Sala 12</small></div><a class="join" href="#ambiente">Entrar</a></div>
-        <div class="slot geo"><div class="i">🌎</div><div><b>Geografia</b><small>9:50 – 10:35 · Sala 12</small></div><a class="join" href="#ambiente">Entrar</a></div>
-        <div class="slot lit"><div class="i">📖</div><div><b>Literatura</b><small>10:55 – 11:40 · Sala 12</small></div><a class="join" href="#ambiente">Entrar</a></div>
-        <div class="slot geom"><div class="i">📐</div><div><b>Geometria</b><small>13:05 – 13:50 · Sala 12</small></div><a class="join" href="#ambiente">Entrar</a></div>
-        <div class="slot bio"><div class="i">🧬</div><div><b>Biologia</b><small>14:00 – 14:45 · Lab. 2</small></div><a class="join" href="#ambiente">Entrar</a></div>
-      </div>
-    </section>
-
-    <!-- AMBIENTE -->
-    <section class="view" id="ambiente">
-      <h1>Ambiente da sala</h1>
-      <p class="sub">Laboratorio de informatica · Atualizado agora</p>
-      <div class="grid g2">
-        <div class="card">
-          <h2>Sensores</h2>
-          <p>Temperatura <b>24 °C</b></p><div class="bar"><i style="width:60%"></i></div>
-          <p>Luminosidade <b>78%</b></p><div class="bar"><i style="width:78%"></i></div>
-          <p>Umidade <b>55%</b></p><div class="bar"><i style="width:55%"></i></div>
-          <p>Ruído <b>42 dB</b></p><div class="bar"><i style="width:35%"></i></div>
-        </div>
-        <div class="card">
-          <h2>Controles</h2>
-          <div class="switch"><span>💡 Luzes automáticas</span><button class="sw on" aria-label="Luzes"></button></div>
-          <div class="switch"><span>❄️ Ar-condicionado</span><button class="sw on" aria-label="Ar"></button></div>
-          <div class="switch"><span>📽️ Projetor</span><button class="sw" aria-label="Projetor"></button></div>
-          <div class="switch"><span>🔒 Porta com crachá</span><button class="sw on" aria-label="Porta"></button></div>
-          <div class="switch"><span>🔋 Modo economia</span><button class="sw" aria-label="Economia"></button></div>
-        </div>
-      </div>
-      <div class="card" style="margin-top:16px">
-        <h2>Presença de hoje</h2>
-        <div class="scroll"><table>
-          <tr><th>Aluno</th><th>Entrada</th><th>Status</th></tr>
-          <tr><td>Lana Hosten</td><td>7:52</td><td class="ok">Presente</td></tr>
-          <tr><td>Pedro Alves</td><td>7:58</td><td class="ok">Presente</td></tr>
-          <tr><td>Marina Costa</td><td>8:12</td><td style="color:var(--yellow);font-weight:600">Atrasada</td></tr>
-          <tr><td>João Ribeiro</td><td>—</td><td style="color:var(--red);font-weight:600">Ausente</td></tr>
-        </table></div>
-      </div>
-        <div class="grid g3" style="margin-top:20px">
-        <div class="card stat"><span class="ico">🌡️</span><b>24 °C</b><small>Temperatura</small><span class="ok">Confortável</span></div>
-        <div class="card stat"><span class="ico">💡</span><b>78%</b><small>Luminosidade</small><span class="ok">Ideal</span></div>
-        <div class="card stat"><span class="ico">🧑‍🎓</span><b>28/30</b><small>Presença</small><span class="ok">Chamada feita</span></div>
-        <div class="card stat"><span class="ico">🍃</span><b>Boa</b><small>Qualidade do ar</small><span class="ok">CO₂ 620 ppm</span></div>
-      </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <section class="view" id="projetos">
-      <h1>Projetos interdisciplinares</h1>
-      <p class="sub">Como a sala inteligente conecta as disciplinas</p>
-      <div class="grid g2">
-        <div class="card"><span class="tag">Matemática</span><span class="tag">Física</span>
-          <h2 style="margin-top:10px">Cálculo de consumo de energia</h2>
-          <p>Usar os dados de luz e ar-condicionado para calcular gastos e propor economia.</p></div>
-        <div class="card"><span class="tag">Geografia</span><span class="tag">Biologia</span>
-          <h2 style="margin-top:10px">Clima e qualidade do ar</h2>
-          <p>Comparar temperatura e CO₂ da sala com o clima da região e seus efeitos na saúde.</p></div>
-        <div class="card"><span class="tag">Português</span>
-          <h2 style="margin-top:10px">Manual do usuário</h2>
-          <p>Escrever textos claros e instruções para uso do sistema por alunos e professores.</p></div>
-        <div class="card"><span class="tag">Informática</span>
-          <h2 style="margin-top:10px">Protótipo do site</h2>
-          <p>Criar as páginas em HTML e CSS, com cores, imagens e navegação coerentes com a modelagem.</p></div>
-      </div>
-    </section>
-
-    <!-- SOBRE -->
-    <section class="view" id="sobre">
-      <h1>Sobre o projeto</h1>
-      <p class="sub">Trabalho Interdisciplinar</p>
-      <div class="card">
-        <h2>Problema</h2>
-        <p>Salas de aula com chamada manual, desperdício de energia e pouco acompanhamento do conforto dos alunos.</p>
-        <h2>Solução</h2>
-        <p>Um site que reúne horários, presença automática e monitoramento do ambiente da sala em uma única tela simples.</p>
-        <h2>Objetivo</h2>
-        <p>Desenvolver uma solução tecnológica para o ambiente escolar relacionando os conteúdos das disciplinas do trimestre.</p>
-        <a class="btn" href="#painel">Voltar ao painel</a>
-      </div>
-    </section>
-
-    <footer>Sala Inteligente · Protótipo HTML, CSS e JavaScript</footer>
   </main>
 </div>
 </body>

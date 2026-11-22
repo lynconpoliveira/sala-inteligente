@@ -1,0 +1,14 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /rooms/{roomCode}/materials/{fileName} {
+      allow read: if request.auth != null
+        && (firestore.get(/databases/(default)/documents/rooms/$(roomCode)).data.teacherId == request.auth.uid
+          || firestore.exists(/databases/(default)/documents/rooms/$(roomCode)/students/$(request.auth.uid)));
+      allow write: if request.auth != null
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'professor'
+        && firestore.get(/databases/(default)/documents/rooms/$(roomCode)).data.teacherId == request.auth.uid;
+    }
+  }
+}

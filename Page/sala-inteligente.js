@@ -1,9 +1,5 @@
-const ids = ["painel", "horarios", "ambiente", "projetos", "sobre"];
-
 function route() {
-  const sections = ids
-    .map((id) => document.getElementById(id))
-    .filter((section) => section !== null);
+  const sections = Array.from(document.querySelectorAll("main > .view"));
   if (sections.length === 0) return;
 
   const availableIds = sections.map((section) => section.id);

@@ -7,7 +7,7 @@
   --soft: #e9e5fa;
   --green: #2fa86b;
   --greenbg: #dff5e9;
-  --red: #e0553f;
+  --red: #f54f39e7;
   --redbg: #fde6e1;
   --blue: #2f86d9;
   --bluebg: #dcecfb;
@@ -198,6 +198,10 @@ main {
   display: block;
 }
 
+.view[hidden] {
+  display: none;
+}
+
 footer {
   text-align: center;
   color: var(--muted);
@@ -317,13 +321,219 @@ footer {
   display: inline-block;
   background: var(--primary);
   color: #fff;
-  border: 0;
+  border: none;
   border-radius: 12px;
   padding: 10px 18px;
   font: inherit;
   font-size: 14px;
   cursor: pointer;
-  text-decoration: none;
+}
+
+.btn:hover{
+  background-color: #241a4d;
+}
+
+.room-panel,
+.join-room {
+  max-width: 520px;
+  margin-top: 20px;
+  padding: 18px;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(74, 42, 155, 0.06);
+}
+
+.room-code {
+  display: inline-block;
+  font-size: 20px;
+  letter-spacing: 6px;
+  color: var(--primary);
+}
+
+.student-list {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.student-list li {
+  padding: 10px 12px;
+  margin-top: 8px;
+  border-radius: 12px;
+  background: var(--soft);
+}
+
+.join-room {
+  display: grid;
+  gap: 10px;
+}
+
+.join-room[hidden] {
+  display: none;
+}
+
+.join-room input {
+  width: 100%;
+  border: 1px solid var(--soft);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+  text-transform: uppercase;
+}
+
+.join-room input#student-name {
+  text-transform: none;
+}
+
+.join-room label {
+  font-weight: 600;
+}
+
+.join-room .btn {
+  justify-self: start;
+}
+
+.join-room .btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.join-room-message {
+  min-height: 24px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.create-room-form {
+  max-width: 520px;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 18px;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(74, 42, 155, 0.06);
+}
+
+.create-room-form[hidden] {
+  display: none;
+}
+
+.create-room-form input {
+  width: 100%;
+  border: 1px solid var(--soft);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+}
+
+.create-room-form .btn {
+  justify-self: start;
+}
+
+.create-room-form .btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.room-list {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.room-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 2px 10px rgba(74, 42, 155, 0.06);
+}
+
+.room-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.room-card-header p {
+  margin: 4px 0 0;
+}
+
+.room-card .room-code {
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+.student-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-danger,
+.btn-remove {
+  background-color: var(--red);
+}
+
+.btn-remove {
+  padding: 7px 12px;
+  font-size: 12px;
+}
+
+.materials-panel,
+.materials-list {
+  max-width: 680px;
+  margin-top: 16px;
+  padding: 18px;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(74, 42, 155, 0.06);
+}
+
+.materials-panel form {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.materials-panel input {
+  width: 100%;
+  border: 1px solid var(--soft);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+}
+
+.materials-list {
+  list-style: none;
+  padding: 10px 18px;
+}
+
+.material-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--soft);
+}
+
+.material-item:last-child {
+  border-bottom: 0;
+}
+
+.material-item a {
+  color: var(--primary);
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 :root[data-theme="dark"] .btn {
